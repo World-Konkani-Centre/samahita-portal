@@ -74,67 +74,127 @@
   </section><!-- End Hero -->
 
     <main id="main">
-        <!-- ======= About Section ======= -->
-        {% comment %} This is comment {% endcomment %}
+
+
+    <!-- ======= wkc Section ======= -->
+    <section id="home" class="home">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-3 col-md-4 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'assets/img/home/home_page.jpg' %}" class="img-fluid image" loading="lazy"draggable="false" onmousedown="return false" style="user-drag: none">
+          </div>
+          <div class="col-lg-9 col-md-8 pt-sm-4 pt-lg-0 order-2 order-lg-1 content">
+            <p>Swadhaar is a Social Support Networking initiative to enable Konkani Talents, Budding Entrepreneurs, Students, Gifted Children, Senior Citizens, Konkani Institutions etc. to realise their fullest potential by providing Consultation, Training and a result oriented network platform.</p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End wkc Section -->
+
+    <!-- ======= About Section ======= -->
+    
     <section id="about" class="about">
       <div class="container">
 
         <div class="row content">
-          <div class="col-lg-6">
-            <h3 class="font-weight-bold">Scholars Online Platform for Employability Assessment</h3>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              VKSSF Alumni Association aims to empower the Scholars by self assessment tools and alumni engaged interactions. You can now access a series of Aptitude Tests loaded with huge question bank evolved over the years. You can build your resume with a world-class resume builder, reviewed online by alumni mentors. You can test your domain skills by Branch wise Technical Mock Interviews or HR Mock Interviews, which can be scheduled with ease. We the Alumni of WKC are with you in your greatest challenge in life so far. Getting you Placed. Lets begin..
-            </p>
-          </div>
+            <h3 class="font-weight-bold">TWO TIER NETWORKING</h3>
+            <p>Swadhaar is a network of grass root level Social Support Units – a group of socially responsive, committed young Konkani people. The Social Support units will constantly keep in touch with the people of their chosen area and escalate the Cases to the central level. They will also implement central level programmes such as Gifted Child hunt, Talent Outreach, Entrepreneur Outreach etc.</p>
+            <p>The Central Level will have a control room which will facilitate the resolution of cases escalated by the Social Support Units. The Control room will have empaneled mentors, consultants and need assessors. When a case is escalated to the central level, the control room will assign a need assessor and assess the need pertaining to the case. On the basis of Need Assessment report the Control Room will assign consultants, mentors and enablers to the cases. Thus a case from the grassroot level get addressed quickly and resolved in timely manner.</p>
         </div>
 
       </div>
     </section><!-- End About Section -->
 
-
-        <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="about" class="about">
       <div class="container">
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="icon-box">
-            <i class="icofont-computer"></i>
-              {% comment %} <h4><a href="{% url 'quiz_index' %}" class="stretched-link">Aptitude Tests</a></h4> {% endcomment %}
-              <p >Aptitude tests are used by the employers to assess you, in terms of your skills, knowledge, ability and personality. Aptitude tests are an accurate way of predicting the potential contribution of a candidate and the likelihood of them achieving success within the organization.</p>
-            </div>
+        <div class="row content">
+            <h3 class="font-weight-bold">SOCIAL SUPPORT SEGMENTS </h3>
+            <p>The following are a few broad segments to which the Swadhaar will provide enabling services.</p>
+            <ol>
+            <li>Gifted Child Programme: Annually a Gifted Child Hunt will be organized by the central level and implemented through SSUs by way of Gifted Child Tests. Identified Gifted Children will be provided with 360 degree support ensuring the realization of fullest potential of the child.</li>
+            <li>Talent Management Support: The Talents identified by the SSUs such as talented young persons in Music, Dance, Arts, Literature, Sports and Games, Coding etc will be groomed by providing mentoring, social media assistance and travel grants.</li>
+            <li>Budding Entrepreneurs Support: The struggling entrepreneurs identified by the SSUs will be provided with Consultation in compliances, know-how, finance and Branding.</li>
+            <li>Startup Support: The young people with Start Up ideas screened by the SSUs for passion and originality, will be vetted and facilitated with training, compliance and seed funding to start up their venture.</li>
+            <li>Student Support: Academically bright students identified by the SSUs will be supported through Scholarships and Skill Development Programme.</li>
+            <li>Senior Citizen Support: The unassisted Senior Citizens identified by the SSUs will be provided with 360 Degree support to ensure their wellbeing and dignified life.</li>
+            <li>Chronic Illness Support: The Chronic illness cases identified by the SSUs will be supported with Review of Medical Diagnosis, ameliorate the medical care standards, Care Giver Trainings and all possible aid.</li>
+            <li>Government Scheme Support: The eligible candidates identified by the SSUs and will be assisted for availing Government Scheme benefits.</li>
+            <li>De-Addiction and rehabilitation Support: The identified cases will be assisted with support to rehabilitate.</li>
+            <li>Mental Wellness Programmes: The SSUs will undertake a mental wellness survey to findout the possible reasons and evolve a mechanism for the social corrections.</li>
+            <li>Women Empowerment: The VSSN will organize workshops for women empowerment in areas such as skill development, post-maternity career planning etc.</li>
+            <li>Support to Konkani Institutions: Institutions of Konkani Communities will be provided with consultation to comply with Government Norms, Technology Implementation etc.</li>
+            </ol>
           </div>
-
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-search-job"></i>
-              {% comment %} <h4><a href="{% url 'interview-home' %}" class="stretched-link">Mock Interviews</a></h4> {% endcomment %}
-              <p>A mock interview, is a simulation of an actual job interview. It provides you with an opportunity to practice for an interview and receive feedback on your interview skills.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-file-alt"></i>
-              {% comment %} <h4><a href="{% url 'resume-home' %}" class="stretched-link">Resume Builder</a></h4> {% endcomment %}
-              <p>Create powerful resumes that capture the attention of hiring managers with SCOPEA's easy-to-use Resume Builder.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="icofont-computer"></i>
-              {% comment %} <h4><a href="{% url 'language_quiz_index' %}" class="stretched-link">English Tests</a></h4> {% endcomment %}
-              <p>Do you want to improve your English for work or for your studies? Start by taking our free English grammar and vocabulary test to help you find your level.</p>
-            </div>
-          </div>
-
-        </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End About Section -->
+
+    <section id="login" class="login">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+    
+                <h3 class="mb-5">Admin Login</h3>
+    
+                <div class="form-outline mb-4">
+                  <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Email" />
+                </div>
+    
+                <div class="form-outline mb-4">
+                  <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" />
+                </div>
+    
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="form1Example3"
+                  />
+                  <label class="form-check-label" for="form1Example3"> Remember password </label>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+    
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+    
+                <h3 class="mb-5">SSU Login</h3>
+    
+                <div class="form-outline mb-4">
+                  <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Email" />
+                </div>
+    
+                <div class="form-outline mb-4">
+                  <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" />
+                </div>
+    
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="form1Example3"
+                  />
+                  <label class="form-check-label" for="form1Example3"> Remember password </label>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     </main>
 

@@ -99,7 +99,7 @@ h6 {
 }
 
 #header .logo img {
-    max-height: 40px;
+    max-height: 55px;
 }
 
 @media (max-width: 992px) {
@@ -2260,4 +2260,20 @@ section {
     text-align: center;
     height: 50px;
     width: 50px;
+}
+
+
+/* Home */
+
+.home p {
+    text-align: justify;
+    line-height: 35px;
+    font-size: larger;
+}
+
+@media (max-width: 480px) {
+    .home p {
+        font-size: medium;
+        line-height: 24px;
+    }
 }
