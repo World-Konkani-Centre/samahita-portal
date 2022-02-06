@@ -1,0 +1,368 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <style>
+        img {
+            -webkit-print-color-adjust: exact;
+        }
+
+        @page {
+            size: A4;
+            font-size: 18px
+        }
+
+
+        @media print {
+            body {
+                font-size: 18px
+            }
+            .resmue-container{
+                font-size: 18px;
+            }
+        }
+
+        .resmue-container{
+            font-size: 18px;
+        }
+
+        section {
+            font-size: 100%;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .top-level {
+            font-size: 100%;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            flex-direction: column;
+        }
+
+        .first-level {
+            font-size: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-i{
+            margin-top: 2px;
+        }
+
+        .first-first-level {
+            font-size: 100%;
+            width: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .first-second-level {
+            font-size: 100%;
+            height: 100%;
+            width: auto;
+        }
+
+        .second-level {
+            font-size: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .second-first-level {
+            font-size: 100%;
+            height: 100%;
+            width: 50%;
+            display: flex;
+            margin-right: 10px;
+            flex-direction: column;
+        }
+
+        .second-second-level {
+            font-size: 100%;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            margin-left: 10px;
+            flex-direction: column;
+        }
+
+        .info {
+            margin-bottom: 0px;
+            font-size: 90%;
+        }
+
+        .porfile-pic {
+            --size: 120px;
+            width: var(--size);
+            height: var(--size);
+            object-fit: cover;
+            margin: 20px 20px;
+            display: block;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+
+        .header-i {
+            padding: 0 2px 0 10px;
+            margin-bottom: 0px;
+            font-size: 100%;
+            border-bottom: 2px solid black;
+            font-weight: bolder;
+            /* text-decoration: underline 2px solid black; */
+        }
+
+        .ie-h6 {
+            margin-bottom: 0px;
+            font-weight: 600;
+            font-size: 100%;
+        }
+
+        .ie-p {
+            margin-bottom: 0px;
+            font-size: 100%;
+        }
+
+        .ie-pf {
+            margin-bottom: 0px;
+            float: right;
+            font-size: 100%;
+        }
+
+        .ln-p {
+            margin-left: 20px;
+            margin-bottom: 2px;
+            font-size: 110%;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 2px;
+            font-size: 100%;
+        }
+
+        li{
+            font-size: 100%;
+        }
+
+        .name {
+            margin-bottom: 0px;
+        }
+
+        .text-md {
+            font-size: 90%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="resmue-container">
+    <div class="top-level">
+        <div class="first-level">
+            <div class="first-first-level">
+                <section>
+                    <h2 class="name text-capitalize">{{ contact.first_name }} {{ contact.last_name }}</h2>
+
+                                  <p class="info text-md">
+                                     {{ contact.prefix }}
+                                  </p>
+                    <p class="info">
+                       <span class="fa fa-xs fa-map-marker"></span> {{ contact.address_1 }}, {{ contact.address_2 }}, {{ contact.state }}, {{ contact.country }} - {{ contact.pin }}
+                    <p class="info">
+                            <span class="fa fa-xs fa-phone"></span> +91 {{ contact.phone_number }}
+                            {% if contact.github %}
+                                &nbsp <span class="fa fa-xs fa-github"></span>
+                                {% if contact.github_user %}
+                                <a href="{{ contact.github }}">{{ contact.github_user }}</a>
+                                {% else %}
+                                    <a href="{{ contact.github }}">{{ contact.github }}</a>
+                                {% endif %}
+                {% endif %}
+
+                    </p>
+                    <p class="info">
+                            {% if contact.linked_in %}
+                                <span class="fa fa-xs fa-linkedin"></span>
+                                {% if contact.linked_in_user %}
+                                <a href="{{ contact.linked_in }}">{{ contact.linked_in_user }}</a>
+                    {% else %}
+                    <a href="{{ contact.linked_in }}">{{ contact.linked_in }}</a>
+                    {% endif %}
+                    {% endif %}
+                            &nbsp <span class="fa fa-xs fa-envelope"></span><a href="mailto:{{ contact.email }}">
+                        {{ contact.email }}</a>
+                    </p>
+                </section>
+            </div>
+            <div class="first-second-level">
+                <section class="text-center">
+                    <img class="porfile-pic" src="{{ actual_user.profile.image.url }}" alt=""/>
+                </section>
+            </div>
+        </div>
+        <div class="second-level">
+            <div class="second-first-level">
+
+                {% if ie %}
+                    <section>
+                        <h4 class="header-i">INTERNSHIP AND EXPERIENCE</h4>
+
+                        <ul>
+                            {% for i in ie %}
+                                <li>
+                                    <h6 class="ie-h6">{{ i.name }}</h6>
+                                    <i class="ie-p"><span style="font-weight: 500">{{ i.position }}</span> - {{ i.city }},{{ i.state }},{{ i.country }}</i>
+                                    <p class="ie-p">
+                                        {{ i.description }}
+                                    </p>
+                                    <p class="ie-p">
+                                        {{ i.date_of_joining }}-{% if i.date_of_exit %}
+                                        {{ i.date_of_exit }}{% else %}Present{% endif %}
+                                    </p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </section>
+                {% endif %}
+
+                {% if education %}
+                    <section>
+                        <h4 class="header-i">EDUCATION</h4>
+                        <ul>
+                            {% for e in education %}
+                                <li>
+                                    <h6 class="ie-h6">{{ e.degree }}, {{ e.field_of_study }}</h6>
+                                    <p class="ie-p">{{ e.school_name }}</p>
+                                    <i class="ie-p">
+                                        {{ e.city }},{{ e.state }}
+                                    </i>
+                                    <i class="ie-pf">{{e.grades_type}} - {{ e.score }}</i>
+                                    <p class="ie-p">{{ e.joining_date }}-{% if e.passing_date %}
+                                        {{ e.passing_date }}{% else %}Present{% endif %}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+                {% if achievement %}
+                    <section>
+                        <h4 class="header-i">ACHIEVEMENTS</h4>
+                        <ul>
+                            {% for e in achievement %}
+                                <li>
+                                    <p class="ie-p">{{ e.description }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+                {% if extras %}
+                    <section>
+                        <h4 class="header-i">EXTRA CURRICULAR ACTIVITIES</h4>
+                        <ul>
+                            {% for e in extras %}
+                                <li><h6 class="ie-h6">{{ e.name }}</h6>
+                                    <p class="ie-p">{{ e.description }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+
+            </div>
+            <div class="second-second-level">
+
+                {% if objectives %}
+                    <section>
+                        <h4 class="header-i">OBJECTIVES</h4>
+                        <ul>
+                            {% for i in objectives %}
+                                <li><p class="ie-h6">{{ i.description }}</p></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+                {% if skills or language %}
+                    <section>
+                        <h4 class="header-i">SKILLS</h4>
+                        <ul>
+                            {% if skills %}
+                                <li>
+                                    <h6 class="ie-h6">Technical Skills</h6>
+                                    <p class="ie-p">{% for sk in skills %}
+                                        {% if forloop.counter == skills|length %}
+                                            {{ sk.skill }}
+                                        {% else %}
+                                            {{ sk.skill }},
+                                        {% endif %}
+                                    {% endfor %} </p>
+                                </li>
+                            {% endif %}
+                            {% if language %}
+                                <li>
+                                    <h6 class="ie-h6">Language Skills</h6>
+                                    <p class="ie-p">{% for sk in language %}
+                                        {% if forloop.counter == language|length %}
+                                            {{ sk.language }}
+                                        {% else %}
+                                            {{ sk.language }},
+                                        {% endif %}
+                                    {% endfor %} </p>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+                {% if projects %}
+                    <section>
+                        <h4 class="header-i">PROJECTS</h4>
+                        <ul>
+                            {% for p in projects %}
+                                <li>
+                                    <h6 class="ie-h6">{{ p.name }}</h6>
+                                    <p class="ie-p" style="font-weight: 500;font-size: 95%">{{ p.tech }}</p>
+                                    <p class="ie-p">
+                                        {{ p.description }}
+                                    </p>
+                                    <p class="ie-p">{{ p.start_date }}-{% if p.end_date %}
+                                        {{ p.end_date }}{% else %}
+                                        Present{% endif %}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+
+                {% if training %}
+                    <section>
+                        <h4 class="header-i">TRAINING AND CERTIFICATIONS</h4>
+                        <ul>
+                            {% for e in training %}
+                                <li>
+                                    <h6 class="ie-h6">{{ e.name }} by {{ e.provider }} </h6>
+                                    <p class="ie-p">{% if e.date %}
+                                        {{ e.date }}{% else %}Present{% endif %}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,58 @@
+{% extends 'base_page.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block custom_css %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock custom_css %}
+
+{% block content %}
+    <main id="main">
+
+
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Award a Badge</h2>
+
+                    <ol>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                         <li><a href="{% url 'mentors-home' %}">Mentors Panel</a></li>
+                        <li>Award a Badge</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+
+    <section id="services" class="services">
+      <div class="container">
+            
+            <form method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="submit" value="Submit" class="btn btn-block btn-info">
+            </form>
+
+      </div>
+    </section>
+
+    
+
+    </main>
+{% endblock %}
+
+{% block custom_js %}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.selectmultiple').select2();
+});
+$('.selectmultiple').select2({
+  placeholder: 'Select the user, you can select multiple user by pressing ctrl button and clicking on users',
+  theme: 'classic'
+});
+</script>
+{% endblock custom_js %}

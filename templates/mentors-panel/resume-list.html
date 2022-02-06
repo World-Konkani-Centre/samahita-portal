@@ -1,0 +1,77 @@
+{% extends "base_page.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block content %}
+<main id="main">
+    <section class="breadcrumbs">
+        <div class="container">
+            {% if heading %}
+                <h2 class="entry-title">{{ heading }}
+                </h2>
+            {% endif %}
+        </div>
+    </section>
+
+
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+                    <div class="row ">
+                        {% if query %}
+                        <div class="card" style="width: 100%">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="interviewTable" class="table table-striped table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>User</th>
+                                                <th>Resume</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for q in query %}
+                                                <td><a href="{% url 'resume-view' resumeId=q.id %}">{{ q.user.profile.name}} | {{q.user.email }}</a></td>
+                                                <td><a href="{% url 'resume-view' resumeId=q.id %}">Resume</a></td>
+                                                {% if q.status == '1' %}
+                                                    <td ><p><span class="badge bg-danger">Under Review</span></p></td>
+                                                {% elif q.status == '2' %}
+                                                    <td><p><span class="badge bg-warning">Needs Update</span></p></td>
+                                                {% elif q.status == '3' %}
+                                                    <td><p><span class="badge bg-success">Complete</span></p></td>
+                                                {% endif %}
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+        </div>
+    </section><!-- End Blog Single Section -->
+
+    </main><!-- End #main -->
+
+
+
+
+{% endblock %}
+
+{% block custom_js %}
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#interviewTable').DataTable();
+        } );
+    </script>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% block content %}
+
+    <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url({% static 'assets/img/slide/101.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">SUPPORT</h2>
+           </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/slide/102.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">TRUST</h2>
+              </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/slide/103.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">DIGNITY</h2>
+              </div>
+          </div>
+        </div>
+
+
+
+        <!-- Slide 4 -->
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/slide/103.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">SELF RELIANCE</h2>
+              </div>
+          </div>
+        </div>
+
+
+
+        <!-- Slide 5 -->
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/slide/103.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">NETWORK</h2>
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        {% comment %} This is comment {% endcomment %}
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h3 class="font-weight-bold">Scholars Online Platform for Employability Assessment</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              VKSSF Alumni Association aims to empower the Scholars by self assessment tools and alumni engaged interactions. You can now access a series of Aptitude Tests loaded with huge question bank evolved over the years. You can build your resume with a world-class resume builder, reviewed online by alumni mentors. You can test your domain skills by Branch wise Technical Mock Interviews or HR Mock Interviews, which can be scheduled with ease. We the Alumni of WKC are with you in your greatest challenge in life so far. Getting you Placed. Lets begin..
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+        <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="icon-box">
+            <i class="icofont-computer"></i>
+              {% comment %} <h4><a href="{% url 'quiz_index' %}" class="stretched-link">Aptitude Tests</a></h4> {% endcomment %}
+              <p >Aptitude tests are used by the employers to assess you, in terms of your skills, knowledge, ability and personality. Aptitude tests are an accurate way of predicting the potential contribution of a candidate and the likelihood of them achieving success within the organization.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="icofont-search-job"></i>
+              {% comment %} <h4><a href="{% url 'interview-home' %}" class="stretched-link">Mock Interviews</a></h4> {% endcomment %}
+              <p>A mock interview, is a simulation of an actual job interview. It provides you with an opportunity to practice for an interview and receive feedback on your interview skills.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="icofont-file-alt"></i>
+              {% comment %} <h4><a href="{% url 'resume-home' %}" class="stretched-link">Resume Builder</a></h4> {% endcomment %}
+              <p>Create powerful resumes that capture the attention of hiring managers with SCOPEA's easy-to-use Resume Builder.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="icofont-computer"></i>
+              {% comment %} <h4><a href="{% url 'language_quiz_index' %}" class="stretched-link">English Tests</a></h4> {% endcomment %}
+              <p>Do you want to improve your English for work or for your studies? Start by taking our free English grammar and vocabulary test to help you find your level.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    </main>
+
+{% endblock %}
+
+{% block custom_js %}
+<script>
+$('#heroCarousel').carousel({
+    interval: 3000
+});
+</script>
+
+{% endblock %}

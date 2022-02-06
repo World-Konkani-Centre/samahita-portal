@@ -1,0 +1,136 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block loader %}
+ <div id="preloader"></div>
+{% endblock loader %}
+
+{% block content %}
+    <main id="main">
+
+
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{% trans "Language Tests" %}</h2>
+
+                    <ol>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>Language Tests</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+
+    <section id="services" class="services">
+      <div class="container">
+<h3 class="font-weight-bold pb-2">Sharpen your English Skills</h3>
+      
+        <div class="row">
+
+            <div class="col-lg-6  align-self-baseline text-center" data-aos="fade-right" data-aos-delay="100">
+                <img src="/static/assets/img/language.svg" class="img-fluid" alt="" width="55%">
+                
+            </div>
+
+            <div class="col-lg-6 wow pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up"
+                    data-aos-delay="100">
+                <p>
+                    Today, the employers insists on English Language Proficiency as a must have skill in prospective candidates. Take our English Tests to know where you stand. These tests include Grammar, Vocabulary and Reading Comprehension. </p>
+                    <p>SCOPEA's English Language Tests Bank has been evolved over the years. Constant reviews by KSHAMATA Resources and Alumni Mentors, SCOPEA's English Language Tests are kept up to date to ensure, you are practicing with tools relevant to your placements.</p>
+
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+        {% if not user.is_authenticated %}
+<div class="col-md-4">
+            <div class="icon-box">
+            <i class="icofont-calculations"></i>
+              <h4><a href="{% url 'login' %}" class="stretched-link">Take Test</a></h4>
+            </div>
+          </div>
+      {% endif %}
+
+          <div class="col-md-4">
+            <div class="icon-box">
+            <i class="icofont-dart"></i>
+              <h4><a href="{% url 'language_quiz_category_list_all' %}" class="stretched-link">Category wise</a></h4>
+            </div>
+          </div>
+
+            <div class="col-md-4">
+            <div class="icon-box">
+            <i class="icofont-anchor"></i>
+              <h4><a href="{% url 'language_quiz_progress' %}" class="stretched-link">Progress</a></h4>
+            </div>
+          </div>
+            {% if user.is_superuser %}
+            <div class="col-md-4">
+            <div class="icon-box">
+            <i class="icofont-settings"></i>
+              <h4><a href="{% url 'language_quiz_marking' %}" class="stretched-link">View Test Submission</a></h4>
+            </div>
+          </div>
+             {% endif %}
+        </div>
+      </div>
+    </section>
+    {% if user.is_authenticated %}
+<section id="" class="">
+                <div class="container">
+        {% if quiz_list %}
+                    <div class="card">
+                        <div class="card-header py-3">
+                            <p class="font-weight-bold p-0 m-0 text-center text-uppercase underline highlight_text">
+                                Available Tests</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table  table-hover table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>{% trans "Title" %}</th>
+                                        <th>{% trans "Category" %}</th>
+                                        <th style="min-width:130px"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for quiz in quiz_list %}
+
+                                        <tr>
+                                            <td>{{ quiz.title }}</td>
+                                            <td>{{ quiz.category }}</td>
+                                            <td>
+                                                <a href="{% url 'language_quiz_start_page' slug=quiz.url %}"
+                                                   class="btn btn-danger"
+                                                   >
+                                                    {% trans "Start Test" %}
+                                                </a>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="card">
+                        <div class="card-header py-3">
+                            <p class="font-weight-bold p-0 m-0 text-center text-uppercase underline highlight_text">
+                                No tests available now, stay tuned</p>
+                        </div>
+                    </div>
+        {% endif %}
+                </div>
+</section>
+    {% endif %}
+
+
+    </main>
+{% endblock %}

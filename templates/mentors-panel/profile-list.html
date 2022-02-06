@@ -1,0 +1,159 @@
+{% extends 'base_page.html' %}
+{% load static %}
+
+{% block custom_css %}
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+           crossorigin="anonymous">
+{% endblock custom_css %}
+
+{% block content %}
+    <main id="main">
+
+
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Profiles</h2>
+
+                   <ol>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                       {% if user.is_authenticated and user.profile.is_mentor %}
+                         <li><a href="{% url 'mentors-home' %}">Mentors Panel</a></li>
+                       {% endif %}
+                        <li>Profiles</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+
+    <section id="services" class="services">
+      <div class="container">
+
+
+               <div class="col-lg-12">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <p class="font-weight-bold p-0 m-0 text-center text-uppercase underline highlight_text">
+                                    User Profile</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Profile</th>
+                                            <th>Aptitude</th>
+                                            <th>Resume</th>
+                                            <th>GD</th>
+                                            <th>TECH</th>
+                                            <th>HR</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for entry in data %}
+                                            <tr>
+                                                <td>
+                                                    <div class="media align-items-center">
+                                                    {% if user.is_authenticated and user.profile.is_mentor %}
+                                                        <a href="{% url 'profile-detail' id=entry.id %}">
+                                                            <img src="{{ entry.image.url }}" loading="lazy"
+                                                                 alt="{{ entry.name }}"
+                                                                 title="{{ entry.user.username }}" width="100px" class="mr-3">
+                                                        </a>
+                                                        {% else %}
+                                                        <a href="#">
+                                                            <img src="{{ entry.image.url }}" loading="lazy"
+                                                                 alt="{{ entry.name }}"
+                                                                 title="{{ entry.user.username }}" width="100px" class="mr-3">
+                                                        </a>
+                                                    {% endif %}
+                                                        <div class="media-body">
+                                                         {% if user.is_authenticated and user.profile.is_mentor %}
+                                                            <a href="{% url 'profile-detail' id=entry.id %}"><span
+                                                                    class="mb-0 text-sm font-weight-bold">
+                                                                {% if entry.name %}
+                                                                    {{ entry.name }}
+                                                                {% else %}
+                                                                    {{ entry.user.username }}
+                                                                {% endif %}
+                                                            </span></a>
+                                                        {% else %}
+                                                               <a href="#"><span
+                                                                    class="mb-0 text-sm font-weight-bold">
+                                                                {% if entry.name %}
+                                                                    {{ entry.name }}
+                                                                {% else %}
+                                                                    {{ entry.user.username }}
+                                                                {% endif %}
+                                                            </span></a>
+                                                        {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    {% if entry.check_for_apti %}
+                                                    <img src="{{entry.url_for_apti}}" width="100px">
+                                                    {% else %}
+                                                    <img src="{% static 'assets/img/error.png' %}" width="100px">
+                                                    {% endif %}
+                                                </td>
+                                                <td class="text-center">
+                                                    {% if entry.check_for_resume %}
+                                                    <img src="{{entry.url_for_resume}}" width="100px">
+                                                    {% else %}
+                                                    <img src="{% static 'assets/img/error.png' %}" width="100px">
+                                                    {% endif %}
+                                                </td>
+                                                <td class="text-center">
+                                                    {% if entry.check_for_gd %}
+                                                    <img src="{{entry.url_for_gd}}" width="100px">
+                                                    {% else %}
+                                                    <img src="{% static 'assets/img/error.png' %}" width="100px">
+                                                    {% endif %}
+                                                </td>
+                                                <td class="text-center">
+                                                    {% if entry.check_for_tech %}
+                                                    <img src="{{entry.url_for_tech}}" width="100px">
+                                                    {% else %}
+                                                    <img src="{% static 'assets/img/error.png' %}" width="100px">
+                                                    {% endif %}
+                                                </td>
+                                                <td class="text-center">
+                                                    {% if entry.check_for_hr %}
+                                                    <img src="{{entry.url_for_hr}}" width="100px">
+                                                    {% else %}
+                                                    <img src="{% static 'assets/img/error.png' %}" width="100px">
+                                                    {% endif %}
+                                                </td>
+                                             </tr>
+                                          
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+      </div>
+    </section>
+
+    
+
+    </main>
+{% endblock %}
+
+
+{% block custom_js %}
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#dataTable').DataTable();
+});
+</script>
+{% endblock custom_js %}
