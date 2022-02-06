@@ -2276,4 +2276,11 @@ section {
         font-size: medium;
         line-height: 24px;
     }
+    .tier{
+        margin-left: 7px;
+    }
+    .segment{
+        text-align: center;
+        margin-left: 5px;
+    }
 }
