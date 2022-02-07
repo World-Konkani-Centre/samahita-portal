@@ -373,7 +373,7 @@ h6 {
 #hero {
     width: 100%;
     height: 100vh;
-    background-color: rgba(63, 73, 83, 0.8);
+    /* background-color: rgba(63, 73, 83, 0.8); */
     overflow: hidden;
     position: relative;
 }
@@ -397,7 +397,7 @@ h6 {
 
 #hero .carousel-item::before {
     content: '';
-    background-color: rgba(30, 35, 40, 0.6);
+    /* background-color: rgba(30, 35, 40, 0.6); */
 }
 
 #hero .carousel-container {
@@ -2276,10 +2276,10 @@ section {
         font-size: medium;
         line-height: 24px;
     }
-    .tier{
+    .tier {
         margin-left: 7px;
     }
-    .segment{
+    .segment {
         text-align: center;
         margin-left: 5px;
     }
