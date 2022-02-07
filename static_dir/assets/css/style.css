@@ -2283,4 +2283,9 @@ section {
         text-align: center;
         margin-left: 5px;
     }
+    .icon{
+        width: 200px;
+        margin-top: 30px;
+        margin-left: 50px;
+    }
 }
